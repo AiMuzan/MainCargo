@@ -1,0 +1,34 @@
+name: Docker Image CI
+
+on:
+    push:
+
+jobs:
+    push-docker:
+        runs-on: ubuntu-latest
+        environment: 
+            name: Docker
+        env:
+            DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}
+            DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+            IMAGE_NAME: wglint/maincargo:${{ github.ref_name }}
+        steps:
+            - name: Copy repository contents
+              uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
+            
+            - name: Login to Dockerfile
+              uses: docker/login-action@v3
+              with:
+                username: ${{ env.DOCKER_USERNAME }}
+                password: ${{ env.DOCKER_PASSWORD }}
+
+            - name: Build and Push Docker Image
+              uses: docker/build-push-action@v4
+              with:
+                context: .
+                push: true
+                tags: ${{ env.IMAGE_NAME }}
+
+            
