@@ -1,7 +1,5 @@
 - hosts : localhost
   become: true
-  vars:
-    public_ssh_key : "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILDy6+zfQFiEapErmSfi5SMcxDwwj8rdAwQ3084wlmYp aelmediri@gmail.com"
   pre_tasks:
     - name: update cache
       apt:
@@ -10,13 +8,22 @@
         - update
   tasks:
     - include_tasks: ansible/ssh_plays.yml
+      vars:
+        public_ssh_key : "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILDy6+zfQFiEapErmSfi5SMcxDwwj8rdAwQ3084wlmYp aelmediri@gmail.com"
       tags:
         - ssh
-    # - include_tasks: ansible/zsh_plays.yml
-    #   tags:
-    #     - zsh
-    # - include_tasks: ansible/vscode_plays.yml
-    #   tags:
-    #     - vscode
+
+    - include_tasks: ansible/zsh_plays.yml
+      vars:
+        zshrc_path: .zshrc
+      tags:
+        - zsh
+
+    - include_tasks: ansible/vscode_plays.yml
+      vars:
+        vscode_config_path: ./.vscode-server/config.yaml
+        vscode_settings_path: ./.vscode-server/settings.json
+      tags:
+        - vscode
 
         

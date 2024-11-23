@@ -2,5 +2,4 @@
 set -e
 
 service ssh start
-
-sleep infinity
+code-server ./ansible
