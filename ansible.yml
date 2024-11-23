@@ -1,0 +1,22 @@
+- hosts : localhost
+  become: true
+  vars:
+    public_ssh_key : "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILDy6+zfQFiEapErmSfi5SMcxDwwj8rdAwQ3084wlmYp aelmediri@gmail.com"
+  pre_tasks:
+    - name: update cache
+      apt:
+        update_cache: yes
+      tags: 
+        - update
+  tasks:
+    - include_tasks: ansible/ssh_plays.yml
+      tags:
+        - ssh
+    # - include_tasks: ansible/zsh_plays.yml
+    #   tags:
+    #     - zsh
+    # - include_tasks: ansible/vscode_plays.yml
+    #   tags:
+    #     - vscode
+
+        

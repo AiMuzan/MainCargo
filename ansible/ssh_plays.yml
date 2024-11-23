@@ -1,0 +1,38 @@
+# ------------------------ OS COMPATIBILITY (where i try and it's work) -------------------------
+# OS: Ubuntu 18 - 20 
+# ------------------------ OS COMPATIBILITY (where i try and it's work) -------------------------
+
+
+- name : install openssh-server
+  ansible.builtin.apt:
+    name: openssh-server
+    state: present
+  tags:
+    - ssh
+- name : create ~/.ssh directory and set permissions
+  ansible.builtin.file:
+    state: directory
+    mode: '0700'
+    path: ~/.ssh
+    owner: root
+    group: root
+  tags:
+    - ssh
+- name : create ~/.ssh/authorized_keys file and set permissions
+  ansible.builtin.file:
+    state: touch
+    mode: '0600'
+    path: ~/.ssh/authorized_keys
+    owner: root
+    group: root
+  tags:
+    - ssh
+- name : add public key to ~/.ssh/authorized_keys
+  shell: echo "{{ public_ssh_key }}" >> ~/.ssh/authorized_keys
+  tags:
+    - ssh
+
+# ------------------------ LAST STEP -------------------------
+# Need in the CMD commande in dockerfile to launch the ssh service.
+# CMD bash -c "service ssh start"
+# ------------------------ LAST STEP -------------------------
