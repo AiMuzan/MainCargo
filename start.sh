@@ -2,4 +2,4 @@
 set -e
 
 service ssh start
-code-server ./ansible
+code-server ./src
