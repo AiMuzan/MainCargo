@@ -2,5 +2,6 @@
     "files.associations": {
         "*_plays.yml" : "ansible",
         "*_plays.yaml" : "ansible"
-    }
+    },
+    "ansible.python.interpreterPath": "/Users/wglint/.pyenv/versions/3.9.10/bin/python"
 }
