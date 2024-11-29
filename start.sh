@@ -1,5 +1,12 @@
 #!/bin/bash
 set -e
 
+# Start SSH in background
 service ssh start
-code-server ./src
+
+# Start code-server in background
+code-server ./src &
+
+# Start ComfyUI 
+source /app/src/venv/bin/activate
+python3 /app/src/ComfyUI/main.py --listen 0.0.0.0 --port 3000
