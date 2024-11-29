@@ -26,4 +26,9 @@
       tags:
         - vscode
 
+    # Install and feature for comfyui
+    - include_tasks: src/ansible/install_comfyui_plays.yml
+      tags:
+        - install_comfyui
+
         

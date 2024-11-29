@@ -1,4 +1,4 @@
-from ubuntu:20.04
+from ubuntu:24.04
 
 # ALL VARIABLES 
 ARG ANSIBLE_MAIN_FILE="./ansible.yml"
@@ -6,6 +6,7 @@ ARG ANSIBLE_SSH_FILE="./ansible/ssh_plays.yml"
 ARG ANSIBLE_ZSH_FILE="./ansible/zsh_plays.yml"
 ARG ANSIBLE_VSCODE_FILE="./ansible/vscode_plays.yml"
 ARG ANSIBLE_VSCODE_SERVER_FOLDER="./.vscode-server"
+ARG ANSIBLE_COMFYUI_FILE="./src/ansible/install_comfyui_plays.yml"
 
 
 
@@ -17,6 +18,9 @@ RUN apt-get update && \
 COPY $ANSIBLE_MAIN_FILE $ANSIBLE_MAIN_FILE
 
 
+####  -------------------------------  ####
+# INSTALL COMMON SETUP FROM MAINCARGO
+####  -------------------------------  ####
 
 # Install SSH with ansible
 COPY $ANSIBLE_SSH_FILE $ANSIBLE_SSH_FILE
@@ -40,6 +44,18 @@ COPY $ANSIBLE_VSCODE_FILE $ANSIBLE_VSCODE_FILE
 COPY $ANSIBLE_VSCODE_SERVER_FOLDER $ANSIBLE_VSCODE_SERVER_FOLDER
 RUN ansible-playbook -t vscode $ANSIBLE_MAIN_FILE
 EXPOSE 8080
+
+
+
+
+####  -------------------------------  ####
+# Install ComfyUI
+####  -------------------------------  ####
+COPY $ANSIBLE_COMFYUI_FILE $ANSIBLE_COMFYUI_FILE
+
+COPY ./src/ComfyUI/requirements.txt ./src/ComfyUI/requirements.txt
+RUN ansible-playbook -t install_comfyui $ANSIBLE_MAIN_FILE
+EXPOSE 3000
 
 
 

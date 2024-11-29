@@ -1,0 +1,52 @@
+# ------------------------ OS COMPATIBILITY (where i try and it's work) -------------------------
+# OS: Ubuntu 24  
+
+# CAREFUL : NEED python3.12 installed on the system ( default in ubuntu 24 )
+# ------------------------ OS COMPATIBILITY (where i try and it's work) -------------------------
+
+
+- name: Install necessary packages
+  ansible.builtin.apt:
+    name:
+      - python3.12-venv
+      - python3-pip
+      # - build-essential   !! Requis pour compiler certains paquets Python !!
+    state: present
+  tags:
+    - install_comfyui
+
+- name: Create virtual environment for ComfyUI
+  ansible.builtin.command:
+    cmd: python3.12 -m venv src/venv
+    creates: src/venv
+  tags:
+    - install_comfyui
+
+- name: Upgrade pip in virtual environment
+  ansible.builtin.command:
+    cmd: src/venv/bin/pip install --upgrade pip
+  tags:
+    - install_comfyui
+
+- name: Install stable PyTorch for NVIDIA GPU in virtual environment
+  ansible.builtin.pip: 
+    executable: /app/src/venv/bin/pip
+    name: 
+      - torch
+      - torchvision
+      - torchaudio
+    extra_args: --extra-index-url https://download.pytorch.org/whl/cu124
+  tags:
+    - install_comfyui
+
+- name: Install requirements.txt in virtual environment
+  ansible.builtin.pip:
+    executable: /app/src/venv/bin/pip
+    requirements: /app/src/ComfyUI/requirements.txt
+  tags:
+    - install_comfyui
+
+# ------------------------ LAST STEP -------------------------
+# Need in the CMD commande in dockerfile to launch the comfyui.
+# CMD bash -c "python main.py"
+# ------------------------ LAST STEP -------------------------
