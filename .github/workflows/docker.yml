@@ -5,8 +5,8 @@ on:
 
 jobs:
   push-docker:
-    runs-on: ubuntu-latest
-    environment: 
+    runs-on: [self-hosted, macOS, ARM64]
+    environment:
       name: Docker
     env:
       DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}

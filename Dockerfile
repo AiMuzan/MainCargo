@@ -1,13 +1,19 @@
 from ubuntu:24.04
 
-# ALL VARIABLES 
+####  -------------------------------  ####
+# ALL VARIABLES
+####  -------------------------------  ####
+
+# VARIABLE FOR MAINCARGO
 ARG ANSIBLE_MAIN_FILE="./ansible.yml"
 ARG ANSIBLE_SSH_FILE="./ansible/ssh_plays.yml"
 ARG ANSIBLE_ZSH_FILE="./ansible/zsh_plays.yml"
 ARG ANSIBLE_VSCODE_FILE="./ansible/vscode_plays.yml"
 ARG ANSIBLE_VSCODE_SERVER_FOLDER="./.vscode-server"
-ARG ANSIBLE_COMFYUI_FILE="./src/ansible/install_comfyui_plays.yml"
 
+# VARIABLE FOR COMFYUI
+ARG ANSIBLE_COMFYUI_FILE="./src/ansible/install_comfyui_plays.yml"
+ARG ANSIBLE_MODELS_FILE="./src/ansible/install_models_plays.yml"
 
 
 WORKDIR /app
@@ -55,10 +61,19 @@ COPY $ANSIBLE_COMFYUI_FILE $ANSIBLE_COMFYUI_FILE
 
 COPY ./src/ComfyUI/requirements.txt ./src/ComfyUI/requirements.txt
 RUN ansible-playbook -t install_comfyui $ANSIBLE_MAIN_FILE
+COPY ./src/ComfyUI/ ./src/ComfyUI/
 EXPOSE 3000
 
 
 
-COPY . .
+# Install models for ComfyUI
+COPY $ANSIBLE_MODELS_FILE $ANSIBLE_MODELS_FILE
 
+RUN ansible-playbook -t install_models $ANSIBLE_MAIN_FILE
+
+
+
+
+
+COPY . .
 CMD ["./start.sh"]
