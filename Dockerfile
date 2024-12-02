@@ -13,7 +13,7 @@ ARG ANSIBLE_VSCODE_SERVER_FOLDER="./.vscode-server"
 
 # VARIABLE FOR COMFYUI
 ARG ANSIBLE_COMFYUI_FILE="./src/ansible/install_comfyui_plays.yml"
-ARG ANSIBLE_MODELS_FILE="./src/ansible/install_models_plays.yml"
+# ARG ANSIBLE_MODELS_FILE="./src/ansible/install_models_plays.yml"
 
 
 WORKDIR /app
@@ -67,9 +67,9 @@ EXPOSE 3000
 
 
 # Install models for ComfyUI
-COPY $ANSIBLE_MODELS_FILE $ANSIBLE_MODELS_FILE
+# COPY $ANSIBLE_MODELS_FILE $ANSIBLE_MODELS_FILE
 
-RUN ansible-playbook -t install_models $ANSIBLE_MAIN_FILE
+# RUN ansible-playbook -t install_models $ANSIBLE_MAIN_FILE
 
 
 
