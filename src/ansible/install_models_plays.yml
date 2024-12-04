@@ -2,10 +2,52 @@
 # OS: Ubuntu 24  
 # ------------------------ OS COMPATIBILITY (where i try and it's work) -------------------------
 
-- name: Install FLUX 1 DEV models
+
+# ------------------------ Description -------------------------
+#
+# Install Flux 1 DEV models ( DoucleCLIP + VAE + DIFFUSERS MODEL )
+#
+# ------------------------ Description -------------------------
+- name: Install FLUX 1 DEV DIFFUSERS MODEL
   ansible.builtin.get_url:
     url: https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/flux1-dev.safetensors
-    dest: /app/src/ComfyUI/models/checkpoints/flux1-dev.safetensors
+    dest: "{{ dest_download_path }}/flux1-dev.safetensors"
+    force: no
+    headers:
+      Authorization : "Bearer {{ huggingface_token }}"
+  tags:
+    - install_models
+- name: Install VAE MODEL
+  ansible.builtin.get_url:
+    url: https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/ae.safetensors
+    dest: "{{ dest_download_path }}/ae.safetensors"
+    force: no
+    headers:
+      Authorization : "Bearer {{ huggingface_token }}"
+  tags:
+    - install_models
+- name: Install CLIP 1 MODEL
+  ansible.builtin.get_url:
+    url: https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors
+    dest: "{{ dest_download_path }}/clip_l.safetensors"
+    force: no
+    headers:
+      Authorization : "Bearer {{ huggingface_token }}"
+  tags:
+    - install_models
+- name: Install CLIP 2 MODEL ( for 8-12 GB RAM )
+  ansible.builtin.get_url:
+    url: https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors
+    dest: "{{ dest_download_path }}/t5xxl_fp8_e4m3fn.safetensors"
+    force: no
+    headers:
+      Authorization : "Bearer {{ huggingface_token }}"
+  tags:
+    - install_models
+- name: Install CLIP 2 MODEL ( for >32 GB RAM )
+  ansible.builtin.get_url:
+    url: https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors
+    dest: "{{ dest_download_path }}/t5xxl_fp16.safetensors"
     force: no
     headers:
       Authorization : "Bearer {{ huggingface_token }}"

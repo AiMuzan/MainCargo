@@ -1,0 +1,45 @@
+# ------------------------ OS COMPATIBILITY (where i try and it's work) -------------------------
+# OS: Ubuntu 24  
+# ------------------------ OS COMPATIBILITY (where i try and it's work) -------------------------
+
+
+# ------------------------ Description -------------------------
+#
+# Config Flux 1 DEV models ( DoucleCLIP + VAE + DIFFUSERS MODEL )
+#
+# ------------------------ Description -------------------------
+- name: copy flux 1 dev DIFFERSUS MODEL
+  ansible.builtin.copy:
+    src: "{{ src_download_path }}/flux1-dev.safetensors"
+    dest: "{{ confyui_path }}/models/unet/flux1-dev.safetensors"
+  when: fichier_flux1_dev.stat.exists
+  tags:
+    - config_models
+- name: copy VAE MODEL
+  ansible.builtin.copy:
+    src: "{{ src_download_path }}/ae.safetensors"
+    dest: "{{ confyui_path }}/models/vae/ae.safetensors"
+  when: fichier_ae.stat.exists
+  tags:
+    - config_models
+- name: copy CLIP 1 MODEL
+  ansible.builtin.copy:
+    src: "{{ src_download_path }}/clip_l.safetensors"
+    dest: "{{ confyui_path }}/models/clip/clip_l.safetensors"
+  when: fichier_clip_l.stat.exists
+  tags:
+    - config_models
+- name: copy CLIP 2 MODEL ( for 8-12 GB RAM )
+  ansible.builtin.copy:
+    src: "{{ src_download_path }}/t5xxl_fp8_e4m3fn.safetensors"
+    dest: "{{ confyui_path }}/models/clip/t5xxl_fp8_e4m3fn.safetensors"
+  when: fichier_t5xxl_fp8_e4m3fn.stat.exists
+  tags:
+    - config_models
+- name: copy CLIP 2 MODEL ( for >32 GB RAM )
+  ansible.builtin.copy:
+    src: "{{ src_download_path }}/t5xxl_fp16.safetensors"
+    dest: "{{ confyui_path }}/models/clip/t5xxl_fp16.safetensors"
+  when: fichier_t5xxl_fp16.stat.exists
+  tags:
+    - config_models
