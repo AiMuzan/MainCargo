@@ -13,7 +13,6 @@ ARG ANSIBLE_VSCODE_SERVER_FOLDER="./.vscode-server"
 
 # VARIABLE FOR COMFYUI
 ARG ANSIBLE_COMFYUI_FILE="./src/ansible/install_comfyui_plays.yml"
-# ARG ANSIBLE_MODELS_FILE="./src/ansible/install_models_plays.yml"
 
 
 WORKDIR /app
@@ -21,6 +20,11 @@ WORKDIR /app
 RUN apt-get update && \
     apt-get install -y ansible
 
+# Generate locale settings in en_US.UTF-8
+RUN apt-get install -y locales && \
+    locale-gen en_US.UTF-8
+
+    
 COPY $ANSIBLE_MAIN_FILE $ANSIBLE_MAIN_FILE
 
 
@@ -63,15 +67,6 @@ COPY ./src/ComfyUI/requirements.txt ./src/ComfyUI/requirements.txt
 RUN ansible-playbook -t install_comfyui $ANSIBLE_MAIN_FILE
 COPY ./src/ComfyUI/ ./src/ComfyUI/
 EXPOSE 3000
-
-
-
-# Install models for ComfyUI
-# COPY $ANSIBLE_MODELS_FILE $ANSIBLE_MODELS_FILE
-
-# RUN ansible-playbook -t install_models $ANSIBLE_MAIN_FILE
-
-
 
 
 

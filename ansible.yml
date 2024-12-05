@@ -31,18 +31,4 @@
       tags:
         - install_comfyui
 
-    - include_tasks: src/ansible/install_models_plays.yml
-      vars:
-        huggingface_token : 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
-        dest_download_path: /workspace
-      tags:
-        - install_models
-
-    - include_tasks: src/ansible/config_models_plays.yml
-      vars:
-        src_download_path: /workspace
-        confyui_path: /app/src/ComfyUI
-      tags:
-        - config_models
-
         
