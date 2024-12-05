@@ -8,7 +8,7 @@ service ssh start
 code-server ./src &
 
 # Install all models for ComfyUI
-./src/models.sh &
+/app/src/models.sh &
 
 # Start ComfyUI 
 source /app/src/venv/bin/activate
