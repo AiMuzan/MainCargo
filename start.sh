@@ -1,11 +1,16 @@
 #!/bin/bash
 set -e
 
+
 # Start SSH in background
-service ssh start
+if [ "${ENABLE_SSH:-true}" = "true" ]; then
+    service ssh start
+fi
 
 # Start code-server in background
-code-server ./src &
+if [ "${ENABLE_CODESERVER:-true}" = "true" ]; then
+    code-server ./src &
+fi
 
 # Install all models for ComfyUI
 python3 /app/src/models.py &
