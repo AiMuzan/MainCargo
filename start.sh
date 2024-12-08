@@ -3,7 +3,7 @@ set -e
 
 
 # Start SSH in background
-if [ "${ENABLE_SSH:-true}" = "true" ]; then
+if [ "${ENABLE_SSH:-false}" = "true" ]; then
     echo "You choice ENABLE_SSH=true, starting SSH server..."
     service ssh start
 else
@@ -11,7 +11,7 @@ else
 fi
 
 # Start code-server in background
-if [ "${ENABLE_CODESERVER:-true}" = "true" ]; then
+if [ "${ENABLE_CODESERVER:-false}" = "true" ]; then
     echo "You choice ENABLE_CODESERVER=true, starting code-server..."
     code-server ./src &
 else
