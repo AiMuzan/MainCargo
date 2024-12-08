@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+# Get information about the container
+echo "Container user : $(whoami)"
+echo "Container permissions :"
+ls -lash /app
 
 # Start SSH in background
 if [ "${ENABLE_SSH:-false}" = "true" ]; then

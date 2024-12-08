@@ -72,4 +72,5 @@ EXPOSE 3000
 USER root
 
 COPY . . 
+RUN chmod -R 777 /app
 CMD ["./start.sh"]
