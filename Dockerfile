@@ -68,7 +68,8 @@ RUN ansible-playbook -t install_comfyui $ANSIBLE_MAIN_FILE
 COPY ./src/ComfyUI/ ./src/ComfyUI/
 EXPOSE 3000
 
+# Need rootpermission for OVH ( not for runpods )
+USER root
 
-
-COPY . .
+COPY . . 
 CMD ["./start.sh"]
