@@ -19,12 +19,10 @@ class InstallModel:
         print(f"Installing and config {self.namemode} models...")
 
         if not os.path.exists(PATH_TO_MOUNT):
-            raise ValueError(f"Path {PATH_TO_MOUNT} does not exist, create a mount folder")
-        
-        for model in self.models:
-            if not os.path.exists(model["path_comfy"]):
+            print("Mount file not found, direct download to good path")
+            for model in self.models:
                 print(f"---------- Installing {model["name"]} ----------")
-                if not os.path.exists(model["path_mount"]):
+                if not os.path.exists(model["path_comfy"]):
                     print("Downloading model...")
                     subprocess.run([
                         "wget",
@@ -33,15 +31,31 @@ class InstallModel:
                         model["URL"],
                         "-O",
                         model["name"]
-                    ], cwd=PATH_TO_MOUNT)
-                
-                print("copy file...")
-                subprocess.run([
-                    "cp",
-                    "-v",
-                    model["path_mount"],
-                    model["path_comfy"]
-                ])
+                    ], cwd=PATH_TO_COMFY)
+                else:
+                    print(f"Model {model["name"]} already exist")
+        else:
+            for model in self.models:
+                if not os.path.exists(model["path_comfy"]):
+                    print(f"---------- Installing {model["name"]} ----------")
+                    if not os.path.exists(model["path_mount"]):
+                        print("Downloading model...")
+                        subprocess.run([
+                            "wget",
+                            "--header",
+                            f"Authorization: Bearer {self.huggingface_token}",
+                            model["URL"],
+                            "-O",
+                            model["name"]
+                        ], cwd=PATH_TO_MOUNT)
+                    
+                    print("copy file...")
+                    subprocess.run([
+                        "cp",
+                        "-v",
+                        model["path_mount"],
+                        model["path_comfy"]
+                    ])
 
 
 if __name__ == "__main__":    
