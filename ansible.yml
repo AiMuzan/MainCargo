@@ -19,11 +19,4 @@
       tags:
         - zsh
 
-    - include_tasks: ansible/vscode_plays.yml
-      vars:
-        vscode_config_path: ./.vscode-server/config.yaml
-        vscode_settings_path: ./.vscode-server/settings.json
-      tags:
-        - vscode
-
         

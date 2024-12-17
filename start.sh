@@ -2,4 +2,4 @@
 set -e
 
 service ssh start
-code-server ./src
+sleep infinity

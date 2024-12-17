@@ -33,16 +33,8 @@ COPY ./.zshrc ./
 RUN ansible-playbook -t zsh $ANSIBLE_MAIN_FILE
 
 
-
-# Install VSCODE Server
-COPY $ANSIBLE_VSCODE_FILE $ANSIBLE_VSCODE_FILE
-
-COPY $ANSIBLE_VSCODE_SERVER_FOLDER $ANSIBLE_VSCODE_SERVER_FOLDER
-RUN ansible-playbook -t vscode $ANSIBLE_MAIN_FILE
-EXPOSE 8080
-
-
-
 COPY . .
+# Change the owner of the app folder (42420 is the user id of the cloud user)
+RUN chown -R 42420:42420 /app
 
 CMD ["./start.sh"]
