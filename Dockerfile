@@ -37,4 +37,6 @@ COPY . .
 # Change the owner of the app folder (42420 is the user id of the cloud user)
 RUN chown -R 42420:42420 /app
 
+USER root
+
 CMD ["./start.sh"]

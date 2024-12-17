@@ -5,7 +5,7 @@ on:
 
 jobs:
   push-docker:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, macOS, ARM64]
     environment: 
       name: Docker
     env:
