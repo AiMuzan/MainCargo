@@ -16,15 +16,15 @@
     - include_tasks: ansible/zsh_plays.yml
       vars:
         zshrc_path: .zshrc
+        powerlevel10k_path: powerlevel10k
       tags:
         - zsh
 
-    - include_tasks: ansible/vscode_plays.yml
+    - include_tasks: ansible/nvim_plays.yml
       vars:
-        vscode_config_path: ./.vscode-server/config.yaml
-        vscode_settings_path: ./.vscode-server/settings.json
+        nvimconfig_path: nvim
       tags:
-        - vscode
+        - nvim
 
     # Install and feature for comfyui
     - include_tasks: src/ansible/install_comfyui_plays.yml
