@@ -9,9 +9,9 @@ ARG ANSIBLE_MAIN_FILE="./ansible.yml"
 ARG ANSIBLE_SSH_FILE="./ansible/ssh_plays.yml"
 ARG ANSIBLE_ZSH_FILE="./ansible/zsh_plays.yml"
 ARG ANSIBLE_NVIM_FILE="./ansible/nvim_plays.yml"
-
-USER root# VARIABLE FOR COMFYUI
 ARG ANSIBLE_COMFYUI_FILE="./src/ansible/install_comfyui_plays.yml"
+
+USER root
 
 
 WORKDIR /app
@@ -46,8 +46,8 @@ RUN ansible-playbook -t zsh $ANSIBLE_MAIN_FILE
 
 
 
-# Install VSCODE Server
-COPY $ANSIBLE_VSCODE_FILE $ANSIBLE_VSCODE_FILE
+# Install NVIM and plugins
+COPY $ANSIBLE_NVIM_FILE $ANSIBLE_NVIM_FILE
 
 COPY ./nvim ./nvim
 RUN ansible-playbook -t nvim $ANSIBLE_MAIN_FILE
@@ -65,9 +65,5 @@ RUN ansible-playbook -t install_comfyui $ANSIBLE_MAIN_FILE
 COPY ./src/ComfyUI/ ./src/ComfyUI/
 EXPOSE 3000
 
-# Need rootpermission for OVH ( not for runpods )
-USER root
-
 COPY . . 
-RUN chmod -R 777 /app
 CMD ["./start.sh"]
