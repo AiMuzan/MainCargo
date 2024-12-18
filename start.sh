@@ -7,5 +7,5 @@ echo "Home: $HOME"
 echo "Shell: $SHELL"
 echo "PWD: $PWD"
 
-sudo service ssh start
+service ssh start
 sleep infinity
