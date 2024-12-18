@@ -1,0 +1,26 @@
+# ------------------------ OS COMPATIBILITY (where i try and it's work) -------------------------
+# OS: Ubuntu 18 - 20 
+# ------------------------ OS COMPATIBILITY (where i try and it's work) -------------------------
+
+- name : Install NVIM
+  ansible.builtin.apt : 
+    name : 
+      - neovim
+      - build-essential
+      - npm
+      - nodejs
+      - unzip
+      - cmake
+      - pkg-config
+      - git
+      - curl
+      - libtool
+    state : present
+  tags : 
+    - nvim
+- name : Move config file to ~/.config/nvim
+  ansible.builtin.copy : 
+    src : "{{ nvimconfig_path }}"
+    dest : ~/.config
+  tags : 
+    - nvim

@@ -16,7 +16,14 @@
     - include_tasks: ansible/zsh_plays.yml
       vars:
         zshrc_path: .zshrc
+        powerlevel10k_path: powerlevel10k
       tags:
         - zsh
+
+    - include_tasks: ansible/nvim_plays.yml
+      vars:
+        nvimconfig_path: nvim
+      tags:
+        - nvim
 
         

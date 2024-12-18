@@ -31,15 +31,7 @@
   shell: echo "{{ public_ssh_key }}" >> ~/.ssh/authorized_keys
   tags:
     - ssh
-- name : create /run/sshd directory with good permissions
-  ansible.builtin.file:
-    state: directory
-    mode: '0755'
-    path: /run/sshd
-    owner: root
-    group: root
-  tags:
-    - ssh
+
 
 # ------------------------ LAST STEP -------------------------
 # Need in the CMD commande in dockerfile to launch the ssh service.
