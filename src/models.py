@@ -97,4 +97,37 @@ if __name__ == "__main__":
         }
     ]
 
+    # ------------------------ Description -------------------------
+    #
+    # Install and Config STABLE DIFFUSION 3.5 LARGE models ( TripCLIP + DIFFUSERS MODEL )
+    #
+    # ------------------------ Description -------------------------
+    STABLE_DIFFUSION = [
+        { 
+            "name": "sd3.5_large.safetensors",
+            "path_mount": f"{PATH_TO_MOUNT}/sd3.5_large.safetensors",
+            "path_comfy": f"{PATH_TO_COMFY}/models/checkpoints/sd3.5_large.safetensors",
+            "URL": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large/resolve/main/sd3.5_large.safetensors"
+        },
+        {
+            "name": "clip_l_sd.safetensors",
+            "path_mount": f"{PATH_TO_MOUNT}/clip_l_sd.safetensors",
+            "path_comfy": f"{PATH_TO_COMFY}/models/clip/clip_l_sd.safetensors",
+            "URL": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large/resolve/main/text_encoders/clip_l.safetensors"
+        },
+        {
+            "name": "t5xxl_fp16.safetensors",
+            "path_mount": f"{PATH_TO_MOUNT}/t5xxl_fp16.safetensors",
+            "path_comfy": f"{PATH_TO_COMFY}/models/clip/t5xxl_fp16.safetensors",
+            "URL": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large/resolve/main/text_encoders/t5xxl_fp16.safetensors"
+        },
+        {
+            "name": "clip_g_sd.safetensors",
+            "path_mount": f"{PATH_TO_MOUNT}/clip_g_sd.safetensors",
+            "path_comfy": f"{PATH_TO_COMFY}/models/clip/clip_g_sd.safetensors",
+            "URL": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large/resolve/main/text_encoders/clip_g.safetensors"
+        }
+    ]
+
     InstallModel("FLUX_1_DEV", FLUX_1_DEV, "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")
+    InstallModel("STABLE_DIFFUSION", STABLE_DIFFUSION, "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")
