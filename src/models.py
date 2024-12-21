@@ -129,6 +129,11 @@ if __name__ == "__main__":
         }
     ]
 
+    # ------------------------ Description -------------------------
+    #
+    # Install and Config LORA ULTRAREALIST models for Flux 1 DEV ( LoRA )
+    #
+    # ------------------------ Description -------------------------
     LORA_ULTRAREALIST = [
         {
             "name": "Canopus-LoRA-Flux-UltraRealism.safetensors",
@@ -138,5 +143,21 @@ if __name__ == "__main__":
         }
     ]
 
+    # ------------------------ Description -------------------------
+    #
+    # Install and Config FLUX 1 SCHELDD models ( DoubleCLIP + VAE + DIFFUSERS MODEL )
+    #
+    # ------------------------ Description -------------------------
+    FLUX_1_SCHELDD = [
+        {
+            "name": "flux1-schnell.safetensors",
+            "path_mount": f"{PATH_TO_MOUNT}/flux1-schnell.safetensors",
+            "path_comfy": f"{PATH_TO_COMFY}/models/unet/flux1-schnell.safetensors",
+            "URL" : "https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/flux1-schnell.safetensors"
+        }
+    ]
+
     InstallModel("FLUX_1_DEV", FLUX_1_DEV, "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")
     InstallModel("STABLE_DIFFUSION", STABLE_DIFFUSION, "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")
+    InstallModel("LORA_ULTRAREALIST", LORA_ULTRAREALIST, "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")
+    InstallModel("FLUX_1_SCHELDD", FLUX_1_SCHELDD, "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")
