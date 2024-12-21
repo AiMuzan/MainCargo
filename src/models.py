@@ -116,9 +116,9 @@ if __name__ == "__main__":
             "URL": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large/resolve/main/text_encoders/clip_l.safetensors"
         },
         {
-            "name": "t5xxl_fp16.safetensors",
-            "path_mount": f"{PATH_TO_MOUNT}/t5xxl_fp16.safetensors",
-            "path_comfy": f"{PATH_TO_COMFY}/models/clip/t5xxl_fp16.safetensors",
+            "name": "t5xxl.safetensors",
+            "path_mount": f"{PATH_TO_MOUNT}/t5xxl.safetensors",
+            "path_comfy": f"{PATH_TO_COMFY}/models/clip/t5xxl.safetensors",
             "URL": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large/resolve/main/text_encoders/t5xxl_fp16.safetensors"
         },
         {
