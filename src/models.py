@@ -129,5 +129,14 @@ if __name__ == "__main__":
         }
     ]
 
+    LORA_ULTRAREALIST = [
+        {
+            "name": "Canopus-LoRA-Flux-UltraRealism.safetensors",
+            "path_mount": f"{PATH_TO_MOUNT}/Canopus-LoRA-Flux-UltraRealism.safetensors",
+            "path_comfy": f"{PATH_TO_COMFY}/models/loras/Canopus-LoRA-Flux-UltraRealism.safetensors",
+            "URL": "https://huggingface.co/prithivMLmods/Canopus-LoRA-Flux-UltraRealism-2.0/resolve/main/Canopus-LoRA-Flux-UltraRealism.safetensors"
+        }
+    ]
+
     InstallModel("FLUX_1_DEV", FLUX_1_DEV, "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")
     InstallModel("STABLE_DIFFUSION", STABLE_DIFFUSION, "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")
