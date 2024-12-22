@@ -9,15 +9,6 @@
   tags:
     - install_plugins
 
-- name: Check if the requirements.txt file exists
-  ansible.builtin.stat:
-    path: "/app/src/ComfyUI/custom_nodes/{{ item.name }}/requirements.txt"
-  loop:
-    - "{{ plugins }}"
-  loop_control:
-    loop_var: item
-  register: requirements_files
-
 - name: Install all python dependencies
   ansible.builtin.pip:
     requirements: "/app/src/ComfyUI/custom_nodes/{{ item.name }}/requirements.txt"
@@ -26,6 +17,5 @@
     - "{{ plugins }}"
   loop_control:
     loop_var: item
-  when: requirements_files.results[loop.index0].stat.exists
   tags:
     - install_plugins
