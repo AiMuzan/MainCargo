@@ -68,6 +68,9 @@ EXPOSE 3000
 # Install all plugins
 ARG ANSIBLE_PLUGINS_FILE="./src/ansible/install_plugins_plays.yml"
 COPY $ANSIBLE_PLUGINS_FILE $ANSIBLE_PLUGINS_FILE
+COPY ./.git ./.git
+
+
 
 RUN ansible-playbook -t install_plugins $ANSIBLE_MAIN_FILE
 
