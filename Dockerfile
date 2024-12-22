@@ -66,4 +66,5 @@ COPY ./src/ComfyUI/ ./src/ComfyUI/
 EXPOSE 3000
 
 COPY . . 
+RUN git submodule update --init --recursive
 CMD ["./start.sh"]
