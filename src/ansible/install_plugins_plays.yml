@@ -13,8 +13,7 @@
   ansible.builtin.pip:
     requirements: "/app/src/ComfyUI/custom_nodes/{{ item.name }}/requirements.txt"
     executable: /app/src/venv/bin/pip
-  loop:
-    - "{{ plugins }}"
+  loop: "{{ plugins }}"
   loop_control:
     loop_var: item
   tags:
