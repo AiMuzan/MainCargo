@@ -3,6 +3,9 @@ import folder_paths
 import torch
 import logging
 
+
+# This function is used to load the hypernetwork patch
+
 def load_hypernetwork_patch(path, strength):
     sd = comfy.utils.load_torch_file(path, safe_load=True)
     activation_func = sd.get('activation_func', 'linear')
