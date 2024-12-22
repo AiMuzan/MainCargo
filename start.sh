@@ -20,14 +20,6 @@ else
     echo "You choice ENABLE_SSH=false, skip starting SSH server"
 fi
 
-# Start code-server in background
-if [ "${ENABLE_CODESERVER:-false}" = "true" ]; then
-    echo "You choice ENABLE_CODESERVER=true, starting code-server..."
-    code-server ./src &
-else
-    echo "You choice ENABLE_CODESERVER=false, skip starting code-server"
-fi
-
 # Install all models for ComfyUI
 python3 /app/src/models.py &
 

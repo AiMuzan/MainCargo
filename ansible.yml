@@ -31,4 +31,12 @@
       tags:
         - install_comfyui
 
+    - include_tasks: src/ansible/install_plugins_plays.yml
+      vars:
+        plugins : 
+          - { name: "ComfyUI-Easy-Use" }
+          - { name: "ComfyUI-Manager" }
+          - { name: "was-node-suite-comfyui" }
+      tags:
+        - install_plugins
         
