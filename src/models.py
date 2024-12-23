@@ -144,11 +144,11 @@ if __name__ == "__main__":
     ]
 
     # ------------------------ Description -------------------------
-    #
+    # UNET
     # Install and Config FLUX 1 SCHELDD models ( DoubleCLIP + VAE + DIFFUSERS MODEL )
     #
     # ------------------------ Description -------------------------
-    FLUX_1_SCHELDD = [
+    FLUX_1_SCHELDD_UNET = [
         {
             "name": "flux1-schnell.safetensors",
             "path_mount": f"{PATH_TO_MOUNT}/flux1-schnell.safetensors",
@@ -157,7 +157,22 @@ if __name__ == "__main__":
         }
     ]
 
+    # ------------------------ Description -------------------------
+    # CHECKPOINT
+    # Install and Config FLUX 1 SCHNELL FP8 models ( DoubleCLIP + VAE + DIFFUSERS MODEL )
+    #
+    # ------------------------ Description -------------------------
+    FLUX_1_SCHELDD_CHECKPOINT = [
+        {
+            "name": "flux1-schnell_fp8.safetensors",
+            "path_mount": f"{PATH_TO_MOUNT}/flux1-schnell_fp8.safetensors",
+            "path_comfy": f"{PATH_TO_COMFY}/models/unet/flux1-schnell_fp8.safetensors",
+            "URL" : "https://huggingface.co/Comfy-Org/flux1-schnell/resolve/main/flux1-schnell-fp8.safetensors"
+        }
+    ]
+
     InstallModel("FLUX_1_DEV", FLUX_1_DEV, "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")
     InstallModel("STABLE_DIFFUSION", STABLE_DIFFUSION, "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")
     InstallModel("LORA_ULTRAREALIST", LORA_ULTRAREALIST, "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")
-    InstallModel("FLUX_1_SCHELDD", FLUX_1_SCHELDD, "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")
+    InstallModel("FLUX_1_SCHELDD", FLUX_1_SCHELDD_UNET, "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")
+    InstallModel("FLUX_1_SCHELDD", FLUX_1_SCHELDD_CHECKPOINT, "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")
