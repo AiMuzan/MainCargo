@@ -10,3 +10,9 @@
 [submodule "src/ComfyUI/custom_nodes/ComfyUI-Florence2"]
 	path = src/ComfyUI/custom_nodes/ComfyUI-Florence2
 	url = https://github.com/kijai/ComfyUI-Florence2.git
+[submodule "src/ComfyUI/custom_nodes/ControlAltAI-Nodes"]
+	path = src/ComfyUI/custom_nodes/ControlAltAI-Nodes
+	url = https://github.com/gseth/ControlAltAI-Nodes
+[submodule "src/ComfyUI/custom_nodes/rgthree-comfy"]
+	path = src/ComfyUI/custom_nodes/rgthree-comfy
+	url = https://github.com/rgthree/rgthree-comfy

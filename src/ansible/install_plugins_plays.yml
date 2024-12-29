@@ -10,10 +10,19 @@
     - install_plugins
 
 - name: Install all python dependencies
+  vars:
+    plugins : # <-- ADD YOUR PLUGINS HERE
+      - { name: "ComfyUI-Easy-Use" }
+      - { name: "ComfyUI-Manager" }
+      - { name: "was-node-suite-comfyui" }
+      - { name: "ComfyUI-Florence2" }
+      - { name: "ControlAltAI-Nodes" }
+      - { name: "rgthree-comfy" }
   ansible.builtin.pip:
     requirements: "/app/src/ComfyUI/custom_nodes/{{ item.name }}/requirements.txt"
     executable: /app/src/venv/bin/pip
   loop: "{{ plugins }}"
+  ignore_errors: yes
   loop_control:
     loop_var: item
   tags:
