@@ -37,6 +37,7 @@
           - { name: "ComfyUI-Easy-Use" }
           - { name: "ComfyUI-Manager" }
           - { name: "was-node-suite-comfyui" }
+          - { name: "ComfyUI-Florence2" }
       tags:
         - install_plugins
         

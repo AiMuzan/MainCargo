@@ -166,7 +166,7 @@ if __name__ == "__main__":
         {
             "name": "flux1-schnell_fp8.safetensors",
             "path_mount": f"{PATH_TO_MOUNT}/flux1-schnell_fp8.safetensors",
-            "path_comfy": f"{PATH_TO_COMFY}/models/unet/flux1-schnell_fp8.safetensors",
+            "path_comfy": f"{PATH_TO_COMFY}/models/checkpoints/flux1-schnell_fp8.safetensors",
             "URL" : "https://huggingface.co/Comfy-Org/flux1-schnell/resolve/main/flux1-schnell-fp8.safetensors"
         }
     ]
