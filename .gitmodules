@@ -16,3 +16,9 @@
 [submodule "src/ComfyUI/custom_nodes/rgthree-comfy"]
 	path = src/ComfyUI/custom_nodes/rgthree-comfy
 	url = https://github.com/rgthree/rgthree-comfy
+[submodule "src/ComfyUI/custom_nodes/comfyui_controlnet_aux"]
+	path = src/ComfyUI/custom_nodes/comfyui_controlnet_aux
+	url = https://github.com/Fannovel16/comfyui_controlnet_aux.git
+[submodule "src/ComfyUI/custom_nodes/ComfyUI-GGUF"]
+	path = src/ComfyUI/custom_nodes/ComfyUI-GGUF
+	url = https://github.com/city96/ComfyUI-GGUF.git

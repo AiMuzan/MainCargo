@@ -171,8 +171,23 @@ if __name__ == "__main__":
         }
     ]
 
+    # ------------------------ Description -------------------------
+    #
+    # Install and Config FLUX DEV UNIONS CONTROLNET models ( DoubleCLIP + VAE + DIFFUSERS MODEL )
+    #
+    # ------------------------ Description -------------------------
+    FLUX_DEV_UNIONS_CONTROLNET = [
+        {
+            "name": "flux_dev_unions_controls.safetensors",
+            "path_mount": f"{PATH_TO_MOUNT}/flux_dev_unions_controls.safetensors",
+            "path_comfy": f"{PATH_TO_COMFY}/models/controlnet/flux_dev_unions_controls.safetensors",
+            "URL": "https://huggingface.co/Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro/resolve/main/diffusion_pytorch_model.safetensors"
+        }
+    ]
+
     InstallModel("FLUX_1_DEV", FLUX_1_DEV, "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")
     InstallModel("STABLE_DIFFUSION", STABLE_DIFFUSION, "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")
     InstallModel("LORA_ULTRAREALIST", LORA_ULTRAREALIST, "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")
     InstallModel("FLUX_1_SCHELDD", FLUX_1_SCHELDD_UNET, "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")
     InstallModel("FLUX_1_SCHELDD", FLUX_1_SCHELDD_CHECKPOINT, "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")
+    InstallModel("FLUX_DEV_UNIONS_CONTROLNET", FLUX_DEV_UNIONS_CONTROLNET, "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")

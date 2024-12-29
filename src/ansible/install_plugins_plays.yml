@@ -18,6 +18,8 @@
       - { name: "ComfyUI-Florence2" }
       - { name: "ControlAltAI-Nodes" }
       - { name: "rgthree-comfy" }
+      - { name: "comfyui_controlnet_aux" }
+      - { name: "ComfyUI-GGUF" }
   ansible.builtin.pip:
     requirements: "/app/src/ComfyUI/custom_nodes/{{ item.name }}/requirements.txt"
     executable: /app/src/venv/bin/pip
