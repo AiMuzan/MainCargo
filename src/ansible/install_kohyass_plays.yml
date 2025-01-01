@@ -51,5 +51,6 @@
   ansible.builtin.pip:
     requirements: /app/src/kohya_ss/requirements_runpod.txt
     executable: /app/src/venv/bin/pip
+  ignore_errors: yes
   tags:
     - kohyass
