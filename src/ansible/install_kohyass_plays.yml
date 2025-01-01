@@ -9,6 +9,13 @@
   tags:
     - kohyass
 
+- name: Install all submodule for kohyass
+  ansible.builtin.shell:
+    cmd: "git submodule update --init --recursive"
+    chdir: /app/src/kohya_ss
+  tags:
+    - kohyass
+
 - name: Install all requirements for Kohyass
   ansible.builtin.apt: 
     name:
@@ -42,7 +49,7 @@
 
 - name: Install requirements for Kohyass
   ansible.builtin.pip:
-    requirements: /app/src/kohya_ss/requirements.txt
+    requirements: /app/src/kohya_ss/requirements_runpod.txt
     executable: /app/src/venv/bin/pip
   tags:
     - kohyass
