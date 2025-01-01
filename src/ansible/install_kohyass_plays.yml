@@ -35,7 +35,7 @@
 
 - name: Activate virtual environment
   ansible.builtin.command:
-    cmd: source src/venv/bin/activate
+    cmd: source /app/src/venv/bin/activate
   tags:
     - kohyass
 
