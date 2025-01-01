@@ -48,7 +48,7 @@ ARG ANSIBLE_KOHYASS_FILE="./src/ansible/install_kohyass_plays.yml"
 COPY $ANSIBLE_KOHYASS_FILE $ANSIBLE_KOHYASS_FILE
 
 RUN ansible-playbook -t kohyass $ANSIBLE_MAIN_FILE
-
+EXPOSE 3000
 
 COPY . .
 
