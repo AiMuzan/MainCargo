@@ -36,7 +36,7 @@ COPY $ANSIBLE_NVIM_FILE $ANSIBLE_NVIM_FILE
 
 COPY ./nvim ./nvim
 RUN ansible-playbook -t nvim $ANSIBLE_MAIN_FILE
-RUN nvim --headless +PackerSync +qa
+# RUN nvim --headless +PackerSync +qa
 
 ####  -------------------------------  ####
 # Install KohyaSS
