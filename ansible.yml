@@ -27,7 +27,7 @@
         - nvim
 
     # START INSTALLATION FOR KOHYASS
-    - include_tasks: src/ansible/install_submodule_plays.yml
+    - include_tasks: src/ansible/install_kohyass_plays.yml
       tags:
         - kohyass
 
