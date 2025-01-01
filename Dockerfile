@@ -52,4 +52,5 @@ EXPOSE 3000
 
 COPY . .
 
+RUN chown -R 42420:42420 /app 
 CMD ["./start.sh"]
