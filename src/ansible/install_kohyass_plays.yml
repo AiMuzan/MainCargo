@@ -1,0 +1,10 @@
+# ------------------------ OS COMPATIBILITY (where i try and it's work) -------------------------
+# OS: Ubuntu 24  
+# ------------------------ OS COMPATIBILITY (where i try and it's work) -------------------------
+
+
+- name: Install all submodules with git
+  ansible.builtin.shell:
+    cmd: "git submodule update --init --recursive"
+  tags:
+    - kohyass
