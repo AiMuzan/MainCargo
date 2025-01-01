@@ -45,3 +45,10 @@
   tags:
     - kohyass
 
+- name: Install requirements for Kohyass
+  ansible.builtin.pip:
+    requirements: src/kohya_ss/requirements_runpod.txt
+    executable: src/venv/bin/pip
+  tags:
+    - kohyass
+
