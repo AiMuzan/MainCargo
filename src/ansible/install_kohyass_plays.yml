@@ -33,11 +33,11 @@
   tags:
     - kohyass
 
-- name: Activate virtual environment
-  ansible.builtin.command:
-    cmd: source /app/src/venv/bin/activate
-  tags:
-    - kohyass
+# - name: Activate virtual environment
+#   ansible.builtin.command:
+#     cmd: source /app/src/venv/bin/activate
+#   tags:
+#     - kohyass
 
 - name: Running setup.py in virtual environment
   ansible.builtin.command:
