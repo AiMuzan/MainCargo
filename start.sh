@@ -23,6 +23,7 @@ fi
 
 # Launch Koyha SS
 source /app/src/venv/bin/activate
+python3.10 src/kohya_ss/setup/setup_linux.py --platform-requirements-file=requirements_runpod.txt --show_stdout --no_run_accelerate
 src/kohya_ss/gui.sh --share --headless --listen 3000
 
 
