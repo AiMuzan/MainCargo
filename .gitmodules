@@ -1,0 +1,4 @@
+[submodule "src/kohya_ss"]
+	path = src/kohya_ss
+	url = https://github.com/bmaltais/kohya_ss.git
+	branch = sd3-flux.1
