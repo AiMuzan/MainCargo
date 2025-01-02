@@ -23,7 +23,7 @@ fi
 
 # Launch Koyha SS
 source /app/src/venv/bin/activate
-src/kohya_ss/gui.sh --share --headless --listen 3000
+src/kohya_ss/gui.sh --share --headless --listen=0.0.0.0 --server_port=3000
 
 
 # The case when the principal process is not a shell
