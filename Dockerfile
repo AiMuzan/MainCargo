@@ -43,6 +43,7 @@ RUN ansible-playbook -t nvim $ANSIBLE_MAIN_FILE
 ####  -------------------------------  ####
 COPY ./.git ./.git
 COPY ./.gitmodules ./.gitmodules
+COPY ./src/requirements.txt ./src/requirements.txt
 
 ARG ANSIBLE_KOHYASS_FILE="./src/ansible/install_kohyass_plays.yml"
 COPY $ANSIBLE_KOHYASS_FILE $ANSIBLE_KOHYASS_FILE
