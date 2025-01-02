@@ -76,4 +76,8 @@ RUN ansible-playbook -t install_plugins $ANSIBLE_MAIN_FILE
 
 
 COPY . . 
+
+# FOR OVH CLOUD 
+RUN chown -R 42420:42420 /app
+
 CMD ["./start.sh"]
