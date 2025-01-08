@@ -9,47 +9,47 @@
   tags:
     - kohyass
 
-- name: Install all submodule for kohyass
-  ansible.builtin.shell:
-    cmd: "git submodule update --init --recursive"
-    chdir: /app/src/kohya_ss
-  tags:
-    - kohyass
+# - name: Install all submodule for kohyass
+#   ansible.builtin.shell:
+#     cmd: "git submodule update --init --recursive"
+#     chdir: /app/src/kohya_ss
+#   tags:
+#     - kohyass
 
-- name: Install all requirements for Kohyass
-  ansible.builtin.apt: 
-    name:
-      - python3-tk
-      - python3-pip
-      - python3.10-venv
-      - libcudnn8=8.7.0.84-1+cuda11.8
-      - libcudnn8-dev=8.7.0.84-1+cuda11.8
-    state: present
-  tags:
-    - kohyass
+# - name: Install all requirements for Kohyass
+#   ansible.builtin.apt: 
+#     name:
+#       - python3-tk
+#       - python3-pip
+#       - python3.10-venv
+#       - libcudnn8=8.7.0.84-1+cuda11.8
+#       - libcudnn8-dev=8.7.0.84-1+cuda11.8
+#     state: present
+#   tags:
+#     - kohyass
 
-- name: Create virtual environment for Kohyass
-  ansible.builtin.command:
-    cmd: python3.10 -m venv src/venv
-    creates: src/venv
-  tags:
-    - kohyass
+# - name: Create virtual environment for Kohyass
+#   ansible.builtin.command:
+#     cmd: python3.10 -m venv src/venv
+#     creates: src/venv
+#   tags:
+#     - kohyass
 
-- name: Upgrade pip in virtual environment
-  ansible.builtin.command:
-    cmd: /app/src/venv/bin/pip install --upgrade pip
-  tags:
-    - kohyass
+# - name: Upgrade pip in virtual environment
+#   ansible.builtin.command:
+#     cmd: /app/src/venv/bin/pip install --upgrade pip
+#   tags:
+#     - kohyass
 
-- name: Running setup.py in virtual environment
-  ansible.builtin.command:
-    cmd: /app/src/venv/bin/python3 src/kohya_ss/setup/setup_linux.py --platform-requirements-file=requirements_runpod.txt --show_stdout --no_run_accelerate
-  tags:
-    - kohyass
+# - name: Running setup.py in virtual environment
+#   ansible.builtin.command:
+#     cmd: /app/src/venv/bin/python3 src/kohya_ss/setup/setup_linux.py --platform-requirements-file=requirements_runpod.txt --show_stdout --no_run_accelerate
+#   tags:
+#     - kohyass
 
-- name: Install requirements for Kohyass
-  ansible.builtin.pip:
-    requirements: /app/src/requirements.txt
-    executable: /app/src/venv/bin/pip
-  tags:
-    - kohyass
+# - name: Install requirements for Kohyass
+#   ansible.builtin.pip:
+#     requirements: /app/src/requirements.txt
+#     executable: /app/src/venv/bin/pip
+#   tags:
+#     - kohyass
