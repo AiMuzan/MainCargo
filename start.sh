@@ -20,13 +20,16 @@ else
     echo "You choice ENABLE_SSH=false, skip starting SSH server"
 fi
 
+PATH_TO_KOHYA_SS="/app/src/kohya_ss"
+PATH_VENV="${PATH_TO_KOHYA_SS}/venv"
+PATH_VENV_ACTIVATE="${PATH_VENV}/bin/activate"
 
 # Launch Koyha SS
-if [ -e "/app/src/venv/bin/activate" ]; then
+if [ -e $PATH_VENV_ACTIVATE ]; then
     echo "Virtual environment detected, activating it..."
 
-    source /app/src/venv/bin/activate
-    src/kohya_ss/gui.sh --share --headless --listen=0.0.0.0 --server_port=3000
+    source $PATH_VENV_ACTIVATE
+    $PATH_TO_KOHYA_SS/gui.sh --share --headless --listen=0.0.0.0 --server_port=3000
 else
     # The case when the principal process is not a shell
     echo "No virtual environment detected, skipping activation..."
