@@ -48,8 +48,8 @@ COPY ./src/requirements.txt ./src/requirements.txt
 ARG ANSIBLE_KOHYASS_FILE="./src/ansible/install_kohyass_plays.yml"
 COPY $ANSIBLE_KOHYASS_FILE $ANSIBLE_KOHYASS_FILE
 
-RUN ansible-playbook -t kohyass -vvv $ANSIBLE_MAIN_FILE
-EXPOSE 3000
+# RUN ansible-playbook -t kohyass -vvv $ANSIBLE_MAIN_FILE
+# EXPOSE 3000
 
 COPY . .
 
