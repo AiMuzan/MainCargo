@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.6.3-cudnn-devel-ubuntu24.04
+FROM nvidia/cuda:12.6.3-cudnn-devel-ubuntu22.04
 
 # ALL VARIABLES 
 ARG ANSIBLE_MAIN_FILE="./ansible.yml"
