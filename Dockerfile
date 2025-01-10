@@ -39,7 +39,7 @@ COPY $ANSIBLE_NVIM_FILE $ANSIBLE_NVIM_FILE
 
 COPY ./nvim ./nvim
 RUN ansible-playbook -t nvim $ANSIBLE_MAIN_FILE
-# RUN nvim --headless +PackerSync +qa
+RUN nvim --headless +PackerSync +qa
 
 ####  -------------------------------  ####
 # Install KohyaSS
@@ -51,8 +51,8 @@ COPY ./src/requirements.txt ./src/requirements.txt
 ARG ANSIBLE_KOHYASS_FILE="./src/ansible/install_kohyass_plays.yml"
 COPY $ANSIBLE_KOHYASS_FILE $ANSIBLE_KOHYASS_FILE
 
-# RUN ansible-playbook -t kohyass -vvv $ANSIBLE_MAIN_FILE
-# EXPOSE 3000
+RUN ansible-playbook -t kohyass -vvv $ANSIBLE_MAIN_FILE
+EXPOSE 3000
 
 COPY . .
 
