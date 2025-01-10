@@ -54,6 +54,13 @@ COPY $ANSIBLE_KOHYASS_FILE $ANSIBLE_KOHYASS_FILE
 RUN ansible-playbook -t kohyass -vvv $ANSIBLE_MAIN_FILE
 EXPOSE 3000
 
+# ONLY FOR EXAMPLE ! Download all models
+WORKDIR /app/src/example/models
+RUN wget https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/flux1-dev.safetensors --header "Authorization: Bearer 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"
+RUN wget https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/ae.safetensors --header "Authorization: Bearer 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"
+RUN wget https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors --header "Authorization: Bearer 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"
+RUN wget https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors --header "Authorization: Bearer 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"
+
 COPY . .
 
 

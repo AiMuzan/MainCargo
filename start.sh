@@ -37,3 +37,4 @@ else
     echo "The main process is not a shell... launch infinite loop to keep the container running"
     sleep infinity
 fi
+
