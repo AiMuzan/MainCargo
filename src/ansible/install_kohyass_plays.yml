@@ -9,9 +9,9 @@
   tags:
     - kohyass
 
-# - name: Install Kohya_ss
-#   ansible.builtin.command:
-#     cmd: "./setup-runpod.sh"
-#     chdir: /app/src/kohya_ss
-#   tags:
-#     - kohyass
+- name: Install Kohya_ss
+  ansible.builtin.command:
+    cmd: "./setup-runpod.sh"
+    chdir: /app/src/kohya_ss
+  tags:
+    - kohyass
