@@ -61,6 +61,7 @@ RUN wget https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/ae.saf
 RUN wget https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors --header "Authorization: Bearer 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"
 RUN wget https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors --header "Authorization: Bearer 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"
 
+WORKDIR /app
 COPY . .
 
 
