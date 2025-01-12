@@ -38,5 +38,5 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: ${{ env.IMAGE_NAME }}
-          cache-from: type=local
-          cache-to: type=local,mode=max
+          cache-from: type=local,dest=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache,mode=max
