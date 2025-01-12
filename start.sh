@@ -18,4 +18,4 @@ else
 fi
 
 # Launch VSCode
-code-server /app
+code-server ./src
