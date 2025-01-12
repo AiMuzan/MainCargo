@@ -18,4 +18,4 @@ else
 fi
 
 # Launch VSCode
-code-server ./src
+code-server ./src --config /app/.vscode-server/config.yaml
