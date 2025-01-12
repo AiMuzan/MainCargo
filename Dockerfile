@@ -47,5 +47,6 @@ COPY . .
 
 # Good owner for OVH 
 RUN chown -R 42420:42420 /app
+ENV HOME="/app"
 
 CMD ["./start.sh"]
