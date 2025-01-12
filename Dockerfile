@@ -47,7 +47,5 @@ COPY . .
 
 # Good owner for OVH 
 RUN chown -R 42420:42420 /app
-WORKDIR /workspace
-RUN chown -R 42420:42420 /workspace
 
 CMD ["./start.sh"]
